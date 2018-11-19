@@ -1,0 +1,14 @@
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\bin\Debug\netcoreapp2.1\BillPlzAPI.deps.json
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\bin\Debug\netcoreapp2.1\BillPlzAPI.runtimeconfig.json
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\bin\Debug\netcoreapp2.1\BillPlzAPI.runtimeconfig.dev.json
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\bin\Debug\netcoreapp2.1\BillPlzAPI.dll
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\bin\Debug\netcoreapp2.1\BillPlzAPI.pdb
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\obj\Debug\netcoreapp2.1\BillPlzAPI.csprojAssemblyReference.cache
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\obj\Debug\netcoreapp2.1\BillPlzAPI.csproj.CoreCompileInputs.cache
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\obj\Debug\netcoreapp2.1\BillPlzAPI.RazorAssemblyInfo.cache
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\obj\Debug\netcoreapp2.1\BillPlzAPI.RazorAssemblyInfo.cs
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\obj\Debug\netcoreapp2.1\BillPlzAPI.AssemblyInfoInputs.cache
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\obj\Debug\netcoreapp2.1\BillPlzAPI.AssemblyInfo.cs
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\obj\Debug\netcoreapp2.1\BillPlzAPI.RazorTargetAssemblyInfo.cache
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\obj\Debug\netcoreapp2.1\BillPlzAPI.dll
+C:\Users\lewis\Desktop\MSA\BillPlzAPI\BillPlzAPI\obj\Debug\netcoreapp2.1\BillPlzAPI.pdb
