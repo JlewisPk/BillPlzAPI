@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BillPlzAPI.Models
 {
-    public class BillPlzAPIContext : DbContext
+    public class ItemContext : DbContext
     {
-        public BillPlzAPIContext (DbContextOptions<BillPlzAPIContext> options)
+        public ItemContext (DbContextOptions<ItemContext> options)
             : base(options)
         {
         }
 
-        public DbSet<BillPlzAPI.Models.ItemObject> ItemObject { get; set; }
+        public DbSet<BillPlzAPI.Models.Item> Item { get; set; }
     }
 }

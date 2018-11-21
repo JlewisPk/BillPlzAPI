@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BillPlzAPI.Migrations
 {
-    [DbContext(typeof(BillPlzAPIContext))]
-    [Migration("20181119123929_InitialCreate")]
+    [DbContext(typeof(ItemContext))]
+    [Migration("20181121024039_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,22 +17,28 @@ namespace BillPlzAPI.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024");
 
-            modelBuilder.Entity("BillPlzAPI.Models.ItemObject", b =>
+            modelBuilder.Entity("BillPlzAPI.Models.Item", b =>
                 {
-                    b.Property<int>("itemId")
+                    b.Property<int>("ItemId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("itemCount");
+                    b.Property<string>("Height");
 
-                    b.Property<string>("itemName");
+                    b.Property<int>("ItemCount");
 
-                    b.Property<int>("itemPrice");
+                    b.Property<string>("ItemName");
 
-                    b.Property<string>("itemURL");
+                    b.Property<int>("ItemPrice");
 
-                    b.HasKey("itemId");
+                    b.Property<string>("ItemURL");
 
-                    b.ToTable("ItemObject");
+                    b.Property<string>("Uploaded");
+
+                    b.Property<string>("Width");
+
+                    b.HasKey("ItemId");
+
+                    b.ToTable("Item");
                 });
 #pragma warning restore 612, 618
         }

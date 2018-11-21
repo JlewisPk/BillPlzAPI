@@ -30,9 +30,9 @@ namespace BillPlzAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<BillPlzAPIContext>(options =>
-                    options.UseSqlite(Configuration.GetConnectionString("BillPlzAPIContext")));
 
+            services.AddDbContext<ItemContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("ItemContext")));
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

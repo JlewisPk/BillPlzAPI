@@ -25,9 +25,10 @@ namespace BillPlzAPI
 
                 try
                 {
-                    var context = services.GetRequiredService<BillPlzAPIContext>();
-                    context.Database.Migrate();
-                    SeedData.Initialize(services);
+                    var itemContext = services.GetRequiredService<ItemContext>();
+                    itemContext.Database.Migrate();
+
+                    SeedData.InitializeAsync(services);
                 }
                 catch (Exception ex)
                 {
