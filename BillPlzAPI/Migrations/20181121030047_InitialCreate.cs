@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BillPlzAPI.Migrations
 {
@@ -11,7 +12,7 @@ namespace BillPlzAPI.Migrations
                 columns: table => new
                 {
                     ItemId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ItemName = table.Column<string>(nullable: true),
                     ItemPrice = table.Column<int>(nullable: false),
                     ItemCount = table.Column<int>(nullable: false),

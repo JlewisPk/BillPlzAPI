@@ -6,68 +6,68 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BillPlzAPI.Models;
+using Microsoft.Extensions.Configuration;
 using BillPlzAPI.Helpers;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
-using Microsoft.Extensions.Configuration;
 
 namespace BillPlzAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ItemObjectsController : ControllerBase
+    public class ItemsController : ControllerBase
     {
         private readonly ItemContext _context;
         private IConfiguration _configuration;
 
-        public ItemObjectsController(ItemContext context, IConfiguration configuration)
+        public ItemsController(ItemContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
         }
 
-        // GET: api/ItemObjects
+        // GET: api/Items
         [HttpGet]
-        public IEnumerable<Item> GetItemObject()
+        public IEnumerable<Item> GetItem()
         {
             return _context.Item;
         }
 
-        // GET: api/ItemObjects/5
+        // GET: api/Items/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetItemObject([FromRoute] int id)
+        public async Task<IActionResult> GetItem([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var itemObject = await _context.Item.FindAsync(id);
+            var item = await _context.Item.FindAsync(id);
 
-            if (itemObject == null)
+            if (item == null)
             {
                 return NotFound();
             }
 
-            return Ok(itemObject);
+            return Ok(item);
         }
 
-        // PUT: api/ItemObjects/5
+        // PUT: api/Items/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutItemObject([FromRoute] int id, [FromBody] Item itemObject)
+        public async Task<IActionResult> PutItem([FromRoute] int id, [FromBody] Item item)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != itemObject.ItemId)
+            if (id != item.ItemId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(itemObject).State = EntityState.Modified;
+            _context.Entry(item).State = EntityState.Modified;
 
             try
             {
@@ -75,7 +75,7 @@ namespace BillPlzAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ItemObjectExists(id))
+                if (!ItemExists(id))
                 {
                     return NotFound();
                 }
@@ -88,49 +88,48 @@ namespace BillPlzAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/ItemObjects
+        // POST: api/Items
         [HttpPost]
-        public async Task<IActionResult> PostItemObject([FromBody] Item itemObject)
+        public async Task<IActionResult> PostItem([FromBody] Item item)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Item.Add(itemObject);
+            _context.Item.Add(item);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetItemObject", new { id = itemObject.ItemId }, itemObject);
+            return CreatedAtAction("GetItem", new { id = item.ItemId }, item);
         }
 
-        // DELETE: api/ItemObjects/5
+        // DELETE: api/Items/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteItemObject([FromRoute] int id)
+        public async Task<IActionResult> DeleteItem([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var itemObject = await _context.Item.FindAsync(id);
-            if (itemObject == null)
+            var item = await _context.Item.FindAsync(id);
+            if (item == null)
             {
                 return NotFound();
             }
 
-            _context.Item.Remove(itemObject);
+            _context.Item.Remove(item);
             await _context.SaveChangesAsync();
 
-            return Ok(itemObject);
+            return Ok(item);
         }
 
-        private bool ItemObjectExists(int id)
+        private bool ItemExists(int id)
         {
             return _context.Item.Any(e => e.ItemId == id);
         }
 
-
-        // GET: api/ItemObjects/ItemNames
+        // GET: api/Items/ItemNames
         [Route("itemNames")]
         [HttpGet]
         public async Task<List<string>> GetItemNamesList()
@@ -246,3 +245,4 @@ namespace BillPlzAPI.Controllers
         }
     }
 }
+
