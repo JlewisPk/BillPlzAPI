@@ -184,6 +184,8 @@ namespace BillPlzAPI.Controllers
 
                     Item imageSourceData = new Item();
                     imageSourceData.ItemName = itemImage.ItemName;
+                    imageSourceData.ItemPrice = itemImage.ItemPrice;
+                    imageSourceData.ItemCount = 1;
 
                     System.Drawing.Image image = System.Drawing.Image.FromStream(stream);
                     imageSourceData.Height = image.Height.ToString();

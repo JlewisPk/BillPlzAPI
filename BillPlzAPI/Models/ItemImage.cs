@@ -9,6 +9,7 @@ namespace BillPlzAPI.Models
     public class ItemImage
     {
         public string ItemName { get; set; }
+        public int ItemPrice { get; set; }
         public IFormFile Image { get; set; }
     }
 }
