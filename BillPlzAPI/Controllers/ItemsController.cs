@@ -134,6 +134,7 @@ namespace BillPlzAPI.Controllers
         [HttpGet]
         public async Task<List<string>> GetItemNamesList()
         {
+            // grab all the item names
             var items = (from m in _context.Item
                          group m by m.ItemName into m
                          select m.Key);
@@ -143,7 +144,25 @@ namespace BillPlzAPI.Controllers
             return returned;
         }
 
+        // GET: api/Meme/ItemNames
+        [HttpGet]
+        [Route("itemName")]
+        public async Task<List<Item>> GetItemName([FromQuery] string itemName)
+        {
+            var items = from m in _context.Item
+                        select m; //get all the items
 
+
+            if (!String.IsNullOrEmpty(itemName)) //make sure user gave an item name to search
+            {
+                items = items.Where(s => s.ItemName.ToLower().Contains(itemName.ToLower())); // find the entries that matches with given partial item name and reassign
+            }
+
+            var returned = await items.ToListAsync(); //return the items
+
+            return returned;
+        }
+        
         [HttpPost, Route("upload")]
         public async Task<IActionResult> UploadFile([FromForm]ItemImage itemImage)
         {
